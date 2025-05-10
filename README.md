@@ -1,27 +1,35 @@
-# タスク管理アプリ（学習用）
+# ポケモン情報閲覧アプリ（学習用）
 
 ## 概要
-このプロジェクトは、React と TypeScript の基本を学習するための簡易的なタスク管理アプリケーションです。シンプルな機能に焦点を当て、基本的な概念の理解を深めることを目的としています。
+このプロジェクトは、React・TypeScript・Axios・Viteの基本を学習するためのPokeAPI連携ポケモン情報閲覧アプリです。API通信や非同期処理、状態管理の基礎を体験することを目的としています。
 
 ## 学習目標
-- TypeScriptの基本的な型定義の理解と実装
+- TypeScriptの型定義と型安全な設計の理解
 - Reactの基本（コンポーネント、フック、状態管理）の習得
-- コンポーネントテストの基本的な書き方の習得
-- シンプルなアプリケーション開発の流れの理解
+- AxiosによるAPI通信の基礎
+- シンプルなUI/UX設計とレスポンシブ対応
+- コンポーネントテストの基本
 
-## 機能
-- タスクの追加・表示・削除・完了機能
-- タスクのフィルタリング（全て/未完了/完了）
-- LocalStorage によるデータ永続化
-- ダーク/ライトテーマの切り替え
+## 主な機能
+- ポケモン一覧の取得・表示（PokeAPI利用）
+- ポケモン詳細情報の表示
+- ポケモン名による検索
+- タイプによるフィルタリング
+- お気に入り登録・解除（LocalStorage利用）
+- お気に入り一覧表示
+- ページネーション
+- ダーク/ライトテーマ切替
 - 基本的なレスポンシブデザイン
 
 ## 技術スタック
 - フロントエンド: React 18 + TypeScript
+- ビルドツール: Vite
 - 状態管理: React Context API + useState
+- API通信: Axios
 - スタイリング: CSS または Tailwind CSS
 - テスト: Jest + React Testing Library
 - データ永続化: LocalStorage
+- 外部API: [PokeAPI](https://pokeapi.co/)
 
 ## セットアップ方法
 
@@ -33,8 +41,8 @@
 
 ```bash
 # リポジトリをクローン（URLはあなたのリポジトリに合わせて変更）
-git clone https://github.com/yourusername/task-manager.git
-cd task-manager
+git clone https://github.com/yourusername/pokemon-viewer.git
+cd pokemon-viewer
 
 # 依存パッケージのインストール
 npm install
@@ -42,9 +50,9 @@ npm install
 yarn install
 
 # 開発サーバーの起動
-npm start
+npm run dev
 # または
-yarn start
+yarn dev
 ```
 
 ## プロジェクト構造
@@ -53,10 +61,12 @@ yarn start
 src/
 ├── components/   # UIコンポーネント
 │   ├── common/   # 共通UI要素
-│   └── tasks/    # タスク関連コンポーネント
+│   └── pokemon/  # ポケモン関連コンポーネント
 ├── contexts/     # 状態管理用のコンテキスト
 ├── hooks/        # カスタムフック
 ├── pages/        # ページコンポーネント
+├── services/     # APIサービス
+├── api/          # APIクライアント設定
 ├── types/        # 型定義
 └── utils/        # ユーティリティ関数
 ```
@@ -64,8 +74,8 @@ src/
 ## 開発計画
 プロジェクトは以下のフェーズで開発します：
 
-1. **フェーズ1**: 基本機能の実装（タスクの追加・表示・削除・完了）
-2. **フェーズ2**: 機能拡張（フィルタリング、テーマ切替、LocalStorage連携）
+1. **フェーズ1**: 基本機能の実装（一覧・詳細・お気に入り・API通信）
+2. **フェーズ2**: 機能拡張（検索・フィルタ・テーマ切替・ページネーション・エラーハンドリング）
 3. **フェーズ3**: テストと最適化
 
 詳細な開発チケットは `docs/チケット/チケット一覧.md` を参照してください。
@@ -79,6 +89,7 @@ src/
 ## 参考資料
 - [React公式ドキュメント](https://ja.reactjs.org/)
 - [TypeScript公式ドキュメント](https://www.typescriptlang.org/docs/)
+- [PokeAPI公式ドキュメント](https://pokeapi.co/docs/v2)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ## ライセンス
