@@ -1,7 +1,0 @@
----
-description: 
-globs: 
-alwaysApply: true
----
-## Always
-- pushはHTTPSで行うため、SSHによる設定やpushは不要です。
