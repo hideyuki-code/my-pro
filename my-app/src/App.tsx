@@ -1,23 +1,13 @@
-import { useEffect } from 'react';
-import { getPokemonList } from './api/pokeApiClient';
+import Button from './components/common/Button';
 
 function App() {
-  // ここに処理を書く
-  useEffect(() => {
-    const fetchPokemon = async () => {
-      try {
-        const data = await getPokemonList(5);
-        console.log('ポケモン一覧', data);
-      } catch (error) {
-        console.error('エラーが発生しました', error);
-      }
-    };
-    fetchPokemon();
-  }, []);
-
   return (
-    <div>
-      <h1>ポケモンリストをコンソールで確認してみよう！</h1>
+    <div style={{ padding: 32 }}>
+      <h1>共通ボタンコンポーネントの動作確認</h1>
+      <Button onClick={() => alert('Primary!')}>プライマリーボタン</Button>
+      <Button variant="secondary" onClick={() => alert('Secondary!')}>セカンダリーボタン</Button>
+      <Button variant="danger" onClick={() => alert('Danger!')}>危険ボタン</Button>
+      <Button disabled>無効化ボタン</Button>
     </div>
   );
 }
